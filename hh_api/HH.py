@@ -5,7 +5,12 @@ from time import time
 HH_API_BASE='https://api.hh.ru'
 
 class App:
-    def __init__(self, client_id: str, client_secret: str, client_info: str, host: str, locale='RU', app_token=None):
+    def __init__(self, client_id: str,
+                 client_secret: str,
+                 client_info: str,
+                 host: str,
+                 locale='RU',
+                 app_token=None):
 
         self.client_id = client_id
         self.client_secret = client_secret
@@ -35,10 +40,10 @@ class App:
         }
         response = requests.get(f'{HH_API_BASE}/me', params=params, headers=headers)
         return response.json()
-    
+
     def get_link_for_authcode(self):
         return f'https://hh.ru/oauth/authorize?response_type=code&client_id={self.client_id}'
-    
+
 class Employee:
 
     def __init__(self, app: App, code=None, employee_data=None):
@@ -71,8 +76,6 @@ class Employee:
             self.expires_at = time() + employee_data['expires_at']
 
         self.appdata = app
-
-
 
     def renew_token(self):
         headers = {
