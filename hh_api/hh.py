@@ -16,31 +16,24 @@ class App:
     Handles authentication and provides methods to retrieve application-related data.
     """
 
-    def __init__(self, client_id: str,
-                 client_secret: str,
-                 client_info: str,
-                 host_locale: dict,
-                 app_token=None):
+    def __init__(self, config: dict, app_token=None):
         """
         Initializes the App instance.
 
         Args:
-            client_id (str): The client ID for authentication.
-            client_secret (str): The client secret for authentication.
-            client_info (str): Information about the client application.
-            host_locale (dict): A dictionary containing host and locale settings.
+            config (dict): A dictionary containing client ID, secret, info, and host locale settings.
             app_token (str, optional): An existing application token. Defaults to None.
         """
 
-        self.client_id = client_id
-        self.client_secret = client_secret
-        self.client_info = client_info
-        self.host = host_locale.get('host')
-        self.locale = host_locale.get('locale', 'RU')
+        self.client_id = config.get('client_id')
+        self.client_secret = config.get('client_secret')
+        self.client_info = config.get('client_info')
+        self.host = config.get('host')
+        self.locale = config.get('locale', 'RU')
 
         data = {
-            'client_id': client_id,
-            'client_secret': client_secret,
+            'client_id': self.client_id,
+            'client_secret': self.client_secret,
             'grant_type': 'client_credentials'
         }
 
