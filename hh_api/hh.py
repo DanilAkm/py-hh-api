@@ -1,5 +1,5 @@
 """
-Module for interacting with the HH.ru API.
+Module for interacting with the hh.ru API.
 
 This module provides classes to authenticate and retrieve information
 about applications and employees using the HH.ru API.

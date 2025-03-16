@@ -1,4 +1,4 @@
-from hh_api import HH
+from hh_api import hh
 from dotenv import load_dotenv
 import os
 import pymongo
