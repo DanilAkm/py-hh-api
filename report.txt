@@ -4,7 +4,7 @@ https://hh.ru/vacancy/112602411 --- Middle Devops инженер
 https://hh.ru/vacancy/117062322 --- DevOps-инженер
 201
 https://hh.ru/vacancy/118142648 --- DevOps инженер (middle +)
-201
+201Í
 https://hh.ru/vacancy/116839059 --- DevOps-инженер
 201
 https://hh.ru/vacancy/112036790 --- DevOps Engineer
@@ -38,4 +38,48 @@ https://hh.ru/vacancy/117045997 --- DevOps-инженер (проекты по �
 https://hh.ru/vacancy/117894203 --- SRE инженер/Devops
 201
 https://hh.ru/vacancy/116771375 --- Middle DevOps инженер
+201
+Sun Mar 16 09:40:17 PM UTC 2025
+https://hh.ru/vacancy/117049742 --- DevOps-инженер
+201
+https://hh.ru/vacancy/118362469 --- DevOps Engineer / SRE
+403
+<bound method Response.json of <Response [403]>>
+https://hh.ru/vacancy/118360676 --- DevOps-инженер (middle)
+201
+https://hh.ru/vacancy/117828401 --- SRE-инженер в проект Deckhouse
+201
+https://hh.ru/vacancy/116514587 --- DevOps инженер
+201
+https://hh.ru/vacancy/117835578 --- Middle DevOps инженер
+201
+https://hh.ru/vacancy/117991678 --- DevOps
+201
+https://hh.ru/vacancy/117360206 --- DevOPS/MLOps Engineer
+201
+https://hh.ru/vacancy/118315140 --- Middle DevOps Engineer
+201
+https://hh.ru/vacancy/117936556 --- DevOps-инженер
+201
+Sun Mar 16 09:40:37 PM UTC 2025
+https://hh.ru/vacancy/118362469 --- DevOps Engineer / SRE
+403
+{'description': 'Must process test first', 'errors': [{'value': 'test_required', 'type': 'negotiations'}], 'request_id': '17421612384374d934e1c435542ced39'}
+https://hh.ru/vacancy/118309575 --- DevOps инженер/DevOps Engineer
+201
+https://hh.ru/vacancy/110618144 --- DevOps-инженер
+201
+https://hh.ru/vacancy/118054179 --- DevOps-инженер
+201
+https://hh.ru/vacancy/118295461 --- DevOps инженер
+201
+https://hh.ru/vacancy/118339800 --- DevOps/MLOps Системный Инженер
+201
+https://hh.ru/vacancy/115683592 --- DevOps-инженер
+201
+https://hh.ru/vacancy/118255011 --- DevOps-инженер
+201
+https://hh.ru/vacancy/118313447 --- Инженер DevSecOps
+201
+https://hh.ru/vacancy/118010024 --- DevOps Engineer (Kubernetes)
 201

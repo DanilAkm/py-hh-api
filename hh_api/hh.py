@@ -250,7 +250,7 @@ class Employee:
         )
         print(response.status_code)
         if response.status_code == 403:
-            print(response.json)
+            print(response.json())
         return response.status_code
 
 if __name__ == "__main__":
