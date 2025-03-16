@@ -45,7 +45,9 @@ class App:
         }
 
         if app_token is None:
-            response = requests.post(url=f'{HH_API_BASE}/token', data=data, timeout=10)
+            response = requests.post(url=f'{HH_API_BASE}/token',
+                                     data=data,
+                                     timeout=10)
             app_token = response.json()['access_token']
         self.app_token = app_token
 
@@ -65,7 +67,10 @@ class App:
             'locale': self.locale,
             'host': self.host
         }
-        response = requests.get(f'{HH_API_BASE}/me', params=params, headers=headers, timeout=10)
+        response = requests.get(f'{HH_API_BASE}/me',
+                                params=params,
+                                headers=headers,
+                                timeout=10)
         return response.json()
 
     def get_link_for_authcode(self):
@@ -82,7 +87,8 @@ class Employee:
     """
     Represents an authenticated employee on the HH.ru platform.
 
-    Handles authentication, token management, and provides methods to retrieve employee-related data.
+    Handles authentication, token management,
+    and provides methods to retrieve employee-related data.
     """
 
     def __init__(self, app: App, code=None, employee_data=None):
@@ -116,7 +122,10 @@ class Employee:
                 'grant_type': 'authorization_code'
             }
 
-            response = requests.post(url=f'{HH_API_BASE}/token', headers=headers, data=data, timeout=10).json()
+            response = requests.post(url=f'{HH_API_BASE}/token',
+                                     headers=headers,
+                                     data=data,
+                                     timeout=10).json()
             print(response)
             self.access_token = response['access_token']
             self.refresh_token = response['refresh_token']
@@ -142,7 +151,10 @@ class Employee:
             'grant_type': 'refresh_token'
         }
 
-        response = requests.post(url=f'{HH_API_BASE}/token', headers=headers, data=data, timeout=10).json()
+        response = requests.post(url=f'{HH_API_BASE}/token',
+                                 headers=headers,
+                                 data=data,
+                                 timeout=10).json()
         print(response)
         self.access_token = response['access_token']
         self.refresh_token = response['refresh_token']
@@ -159,7 +171,9 @@ class Employee:
         headers = {
             'Authorization': f'Bearer {self.access_token}'
         }
-        response = requests.delete(url=f'{HH_API_BASE}/token', headers=headers, timeout=10)
+        response = requests.delete(url=f'{HH_API_BASE}/token',
+                                   headers=headers,
+                                   timeout=10)
         return response.json()
 
     def get_info(self):
@@ -178,7 +192,10 @@ class Employee:
             'locale': self.appdata.locale,
             'host': self.appdata.host
         }
-        response = requests.get(url=f'{HH_API_BASE}/me', headers=headers, params=params, timeout=10)
+        response = requests.get(url=f'{HH_API_BASE}/me',
+                                headers=headers,
+                                params=params,
+                                timeout=10)
         return response.json()
 
     def get_resumes(self):
@@ -197,7 +214,10 @@ class Employee:
             'locale': self.appdata.locale,
             'host': self.appdata.host
         }
-        response = requests.get(url=f'{HH_API_BASE}/resumes/mine', headers=headers, params=params, timeout=10)
+        response = requests.get(url=f'{HH_API_BASE}/resumes/mine',
+                                headers=headers,
+                                params=params,
+                                timeout=10)
         return response.json()
 
     def get_vacancies_for_resume(self, resume_id: str, params: dict):
