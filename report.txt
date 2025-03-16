@@ -83,3 +83,232 @@ https://hh.ru/vacancy/118313447 --- Инженер DevSecOps
 201
 https://hh.ru/vacancy/118010024 --- DevOps Engineer (Kubernetes)
 201
+Sun Mar 16 09:43:36 PM UTC 2025
+https://hh.ru/vacancy/118362469 --- DevOps Engineer / SRE
+403
+{'description': 'Must process test first', 'errors': [{'value': 'test_required', 'type': 'negotiations'}], 'request_id': '174216141697079ec79a30ff49956690'}
+https://hh.ru/vacancy/117260489 --- Junior DevOps-инженер
+403
+{'description': "Can't respond to specified vacancy", 'bad_argument': 'vacancy_id', 'bad_arguments': [{'name': 'vacancy_id', 'description': "Can't respond to specified vacancy"}], 'errors': [{'value': 'application_denied', 'type': 'negotiations'}], 'request_id': '174216141708318c4241be63835f1c82'}
+https://hh.ru/vacancy/118082029 --- Senior DevOps инженер
+201
+https://hh.ru/vacancy/118288694 --- DevOps инженер
+201
+https://hh.ru/vacancy/118243883 --- DevOps инженер
+201
+https://hh.ru/vacancy/117607979 --- DevOps Engineer / Инфраструктурный инженер
+201
+https://hh.ru/vacancy/118305999 --- DevOps-инженер (BMS)
+201
+https://hh.ru/vacancy/118248424 --- SRE инженер
+201
+https://hh.ru/vacancy/118248475 --- DevOps-инженер
+201
+https://hh.ru/vacancy/118265449 --- Middle DevOps engineer
+201
+Sun Mar 16 09:47:04 PM UTC 2025
+https://hh.ru/vacancy/117260489 --- Junior DevOps-инженер
+403
+{'description': "Can't respond to specified vacancy", 'bad_argument': 'vacancy_id', 'bad_arguments': [{'name': 'vacancy_id', 'description': "Can't respond to specified vacancy"}], 'errors': [{'value': 'application_denied', 'type': 'negotiations'}], 'request_id': '174216162591421e73f9f08a082f8308'}
+https://hh.ru/vacancy/118362469 --- DevOps Engineer / SRE
+403
+{'description': 'Must process test first', 'errors': [{'value': 'test_required', 'type': 'negotiations'}], 'request_id': '1742161625993c1dfb51b1f5e49bb41d'}
+https://hh.ru/vacancy/115512190 --- Middle+/Senior DevOps инженер
+201
+https://hh.ru/vacancy/118336629 --- DevOps Engineer
+201
+https://hh.ru/vacancy/115548234 --- Middle+ / Senior DevOps-инженер
+201
+https://hh.ru/vacancy/117770104 --- DevOps engineer
+201
+https://hh.ru/vacancy/117750951 --- DevOps / SRE инженер
+201
+https://hh.ru/vacancy/118236658 --- SRE/DevOps (Senior)
+201
+https://hh.ru/vacancy/118044205 --- Системный инженер Linux
+201
+https://hh.ru/vacancy/118254319 --- DevOps - Инженер
+201
+https://hh.ru/vacancy/118256689 --- DevOps-инженер (Облачная инфраструктура Alibaba)
+201
+https://hh.ru/vacancy/117674510 --- Системный администратор Linux / Kubernetes (Middle DevOps инженер)
+201
+https://hh.ru/vacancy/117493937 --- Системный администратор Linux
+201
+https://hh.ru/vacancy/118274751 --- DevOps-инженер
+201
+https://hh.ru/vacancy/118314870 --- DevOps-инженер
+201
+https://hh.ru/vacancy/116526572 --- DevOps инженер (Гибрид)
+201
+https://hh.ru/vacancy/118235403 --- Dev-ops/Системный администратор
+201
+https://hh.ru/vacancy/118295381 --- DevOps-инженер
+201
+https://hh.ru/vacancy/118362352 --- Инженер Linux (школа Linux Upscale)
+201
+https://hh.ru/vacancy/117074567 --- DevOps-инженер (Middle) ДИЭиИР
+201
+https://hh.ru/vacancy/118259248 --- Senior DevOps engineer (Голограмма)
+201
+https://hh.ru/vacancy/117821098 --- DevOps-инженер
+201
+https://hh.ru/vacancy/117487184 --- Middle DevOps инженер
+201
+https://hh.ru/vacancy/118309166 --- Devops -инженер
+201
+https://hh.ru/vacancy/108371742 --- DevOps-инженер (удаленно)
+201
+https://hh.ru/vacancy/115557728 --- DevOps/SRE
+201
+https://hh.ru/vacancy/118331191 --- DevOps
+201
+https://hh.ru/vacancy/117211364 --- DevOps Engineer
+201
+https://hh.ru/vacancy/118212019 --- DevOps-инженер
+201
+https://hh.ru/vacancy/116595623 --- DevOps engineer
+201
+https://hh.ru/vacancy/117021080 --- DevOps-инженер
+201
+https://hh.ru/vacancy/117699736 --- DevOps-инженер
+201
+https://hh.ru/vacancy/117485326 --- Инженер DevOps (Middle,Senior)
+403
+{'description': 'Must process test first', 'errors': [{'value': 'test_required', 'type': 'negotiations'}], 'request_id': '174216163183124af83373dc7b384447'}
+https://hh.ru/vacancy/117147523 --- DevOps/SRE инженер
+201
+https://hh.ru/vacancy/117691226 --- SRE/DevOps Engineer (WBus)
+201
+https://hh.ru/vacancy/118305671 --- Инженер DevOps Потоковые данные
+201
+https://hh.ru/vacancy/116371545 --- DevOps-инженер/Platform Engineer
+201
+https://hh.ru/vacancy/117380958 --- Инженер DevOps / ДевОпс
+403
+{'description': 'Must process test first', 'errors': [{'value': 'test_required', 'type': 'negotiations'}], 'request_id': '17421616326555b8384489a0bc3659f7'}
+https://hh.ru/vacancy/117220831 --- DevOps engineer
+201
+https://hh.ru/vacancy/112643262 --- Специалист по безопасности CI/CD
+201
+https://hh.ru/vacancy/118181702 --- DevOps-инженер
+201
+https://hh.ru/vacancy/117677756 --- SRE/DevOps
+201
+https://hh.ru/vacancy/117017202 --- DevOps инженер
+201
+https://hh.ru/vacancy/115601285 --- Senior Devops Администратор
+201
+https://hh.ru/vacancy/113269858 --- SRE-инженер/ Devops/ Системный администратор
+201
+https://hh.ru/vacancy/117170944 --- Системный инженер
+201
+https://hh.ru/vacancy/118347221 --- Инженер мониторинга
+201
+https://hh.ru/vacancy/118295633 --- Middle Devops/Инженер Kubernetes [Развитие инфраструктуры]
+201
+https://hh.ru/vacancy/117844003 --- DevOps Engineer Middle+ / Senior
+201
+https://hh.ru/vacancy/118250866 --- DevOps Engineer (AWS)
+201
+https://hh.ru/vacancy/114811691 --- DevOps инженер
+201
+https://hh.ru/vacancy/118211744 --- Middle Devops
+201
+https://hh.ru/vacancy/117788026 --- DevOps-инженер
+201
+https://hh.ru/vacancy/117487716 --- DevOps-инженер ( L2)\Системный администратор Linux
+201
+https://hh.ru/vacancy/118035266 --- DevOps-инженер
+201
+https://hh.ru/vacancy/117070912 --- DevOps инженер
+201
+https://hh.ru/vacancy/115892924 --- DevOps-инженер
+201
+https://hh.ru/vacancy/118154909 --- Linux инженер
+201
+https://hh.ru/vacancy/118209452 --- DevOps-инженер
+201
+https://hh.ru/vacancy/118375777 --- DevOps инженер/Системный администратор (Админ Linux)
+201
+https://hh.ru/vacancy/109234139 --- DevOps инженер (middle+)
+201
+https://hh.ru/vacancy/118306035 --- DevOps engineer CI/CD
+201
+https://hh.ru/vacancy/106794035 --- System Administrator Linux / Системный Администратор Линукс
+201
+https://hh.ru/vacancy/117736751 --- DevOps Engineer
+201
+https://hh.ru/vacancy/118241528 --- Devops инженер
+201
+https://hh.ru/vacancy/118114065 --- DevOps-инженер
+201
+https://hh.ru/vacancy/118175494 --- DevOps-инженер в команду ГПБ.Кубер
+201
+https://hh.ru/vacancy/117656973 --- Ведущий инженер SysOps (Linux/Docker/Kubernetes)
+201
+https://hh.ru/vacancy/117380621 --- Инженер Linux
+403
+{'description': 'Must process test first', 'errors': [{'value': 'test_required', 'type': 'negotiations'}], 'request_id': '17421616384593ebd9f7d4af13fe002e'}
+https://hh.ru/vacancy/118068430 --- SRE/DevOps-инженер
+201
+https://hh.ru/vacancy/108046132 --- DevOps-инженер
+201
+https://hh.ru/vacancy/117728991 --- AppSec инженер (Container Security)
+201
+https://hh.ru/vacancy/117162375 --- DevOps инженер (Middle)
+201
+https://hh.ru/vacancy/108960704 --- DevOps-инженер
+201
+https://hh.ru/vacancy/118054915 --- Devops инженер (Middle+/Senior)
+201
+https://hh.ru/vacancy/117232171 --- Junior DevOps инженер
+201
+https://hh.ru/vacancy/118116168 --- DevOps-инженер (Junior+/Middle)
+201
+https://hh.ru/vacancy/118277740 --- DevOps-инженер
+201
+https://hh.ru/vacancy/111347568 --- DevOps Engineer
+201
+https://hh.ru/vacancy/118155665 --- DevOps инженер
+201
+https://hh.ru/vacancy/115720752 --- DevОps специалист
+201
+https://hh.ru/vacancy/111528412 --- DevOps Engineer
+201
+https://hh.ru/vacancy/118182203 --- Системный администратор/ Junior DevOps
+201
+https://hh.ru/vacancy/118163605 --- DevOps Engineer (CI/CD)
+201
+https://hh.ru/vacancy/118206509 --- DevOps-инженер
+201
+https://hh.ru/vacancy/117957105 --- Системный инженер Linux / devops
+201
+https://hh.ru/vacancy/118314957 --- Системный администратор Kubernetes
+201
+https://hh.ru/vacancy/118199102 --- DevOps-инженер
+201
+https://hh.ru/vacancy/118172315 --- DevOps инженер / Middle
+201
+https://hh.ru/vacancy/107794568 --- DevOps инженер / DataOps
+201
+https://hh.ru/vacancy/117531908 --- DevOps-инженер Middle+/Senior
+201
+https://hh.ru/vacancy/118193660 --- MLOps / DevOps инженер
+201
+https://hh.ru/vacancy/118189381 --- DevOps Инженер
+201
+https://hh.ru/vacancy/118247262 --- Ведущий DevOps-инженер
+201
+https://hh.ru/vacancy/117534310 --- SRE/Linux администратор
+201
+https://hh.ru/vacancy/118264931 --- DevOps инженер
+201
+https://hh.ru/vacancy/108860202 --- DevOps инженер
+201
+https://hh.ru/vacancy/118147618 --- DevOps-инженер
+201
+https://hh.ru/vacancy/117331526 --- Инженер внедрения
+201
+https://hh.ru/vacancy/118098477 --- DevOps Engineer
+201

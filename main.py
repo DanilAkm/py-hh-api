@@ -92,12 +92,12 @@ def filter_vacancies(vacancies_json):
     return out
 
 
-MESSAGE = """ """
+MESSAGE = """"""
 
 # https://api.hh.ru/openapi/redoc#tag/Poisk-vakansij-dlya-soiskatelya/operation/get-vacancies-similar-to-resume
 search_filter = {
     'salary': 200000,
-    'per_page': 10
+    'per_page': 100
 }
 
 resume_id = emp.get_resumes()['items'][0]['id']

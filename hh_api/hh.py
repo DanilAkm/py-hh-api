@@ -1,9 +1,7 @@
 """
-@boyceing
-Module for interacting with the hh.ru API.
+Copyright (c) Danil Akhmadiev (@boyceing)
 
-This module provides classes to authenticate and retrieve information
-about applications and employees using the HH.ru API.
+This module is licensed under the MIT License.
 """
 
 from time import time
