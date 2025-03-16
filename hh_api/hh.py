@@ -1,13 +1,16 @@
 """
+@boyceing
 Module for interacting with the hh.ru API.
 
 This module provides classes to authenticate and retrieve information
 about applications and employees using the HH.ru API.
 """
+
 from time import time
 import requests
 
-HH_API_BASE='https://api.hh.ru'
+HH_API_BASE = "https://api.hh.ru"
+
 
 class App:
     """
@@ -25,23 +28,21 @@ class App:
         app_token (str, optional): An existing application token. Defaults to None.
         """
 
-        self.client_id = config.get('client_id')
-        self.client_secret = config.get('client_secret')
-        self.client_info = config.get('client_info')
-        self.host = config.get('host')
-        self.locale = config.get('locale')
+        self.client_id = config.get("client_id")
+        self.client_secret = config.get("client_secret")
+        self.client_info = config.get("client_info")
+        self.host = config.get("host")
+        self.locale = config.get("locale")
 
         data = {
-            'client_id': self.client_id,
-            'client_secret': self.client_secret,
-            'grant_type': 'client_credentials'
+            "client_id": self.client_id,
+            "client_secret": self.client_secret,
+            "grant_type": "client_credentials",
         }
 
         if app_token is None:
-            response = requests.post(url=f'{HH_API_BASE}/token',
-                                     data=data,
-                                     timeout=10)
-            app_token = response.json()['access_token']
+            response = requests.post(url=f"{HH_API_BASE}/token", data=data, timeout=10)
+            app_token = response.json()["access_token"]
         self.app_token = app_token
 
     def get_app_info(self):
@@ -53,17 +54,13 @@ class App:
         """
 
         headers = {
-            'Authorization': f'Bearer {self.app_token}',
-            'HH-User-Agent': self.client_info
+            "Authorization": f"Bearer {self.app_token}",
+            "HH-User-Agent": self.client_info,
         }
-        params = {
-            'locale': self.locale,
-            'host': self.host
-        }
-        response = requests.get(f'{HH_API_BASE}/me',
-                                params=params,
-                                headers=headers,
-                                timeout=10)
+        params = {"locale": self.locale, "host": self.host}
+        response = requests.get(
+            f"{HH_API_BASE}/me", params=params, headers=headers, timeout=10
+        )
         return response.json()
 
     def get_link_for_authcode(self):
@@ -74,7 +71,8 @@ class App:
             str: The authorization URL.
         """
 
-        return f'https://hh.ru/oauth/authorize?response_type=code&client_id={self.client_id}'
+        return f"https://hh.ru/oauth/authorize?response_type=code&client_id={self.client_id}"
+
 
 class Employee:
     """
@@ -104,29 +102,26 @@ class Employee:
         if employee_data is None:
             if code is None:
                 raise TypeError("Missing auth code")
-            headers = {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            }
+            headers = {"Content-Type": "application/x-www-form-urlencoded"}
 
             data = {
-                'code': code,
-                'client_id': app.client_id,
-                'client_secret': app.client_secret,
-                'grant_type': 'authorization_code'
+                "code": code,
+                "client_id": app.client_id,
+                "client_secret": app.client_secret,
+                "grant_type": "authorization_code",
             }
 
-            response = requests.post(url=f'{HH_API_BASE}/token',
-                                     headers=headers,
-                                     data=data,
-                                     timeout=10).json()
+            response = requests.post(
+                url=f"{HH_API_BASE}/token", headers=headers, data=data, timeout=10
+            ).json()
             print(response)
-            self.access_token = response['access_token']
-            self.refresh_token = response['refresh_token']
-            self.expires_at = time() + response['expires_in']
+            self.access_token = response["access_token"]
+            self.refresh_token = response["refresh_token"]
+            self.expires_at = time() + response["expires_in"]
         else:
-            self.access_token = employee_data['access_token']
-            self.refresh_token = employee_data['refresh_token']
-            self.expires_at = time() + employee_data['expires_at']
+            self.access_token = employee_data["access_token"]
+            self.refresh_token = employee_data["refresh_token"]
+            self.expires_at = time() + employee_data["expires_at"]
 
         self.appdata = app
 
@@ -135,23 +130,17 @@ class Employee:
         Renews the employee's authentication token using the refresh token.
         """
 
-        headers = {
-            'Content-Type': 'application/x-www-form-urlencoded'
-        }
+        headers = {"Content-Type": "application/x-www-form-urlencoded"}
 
-        data = {
-            'refresh_token': self.refresh_token,
-            'grant_type': 'refresh_token'
-        }
+        data = {"refresh_token": self.refresh_token, "grant_type": "refresh_token"}
 
-        response = requests.post(url=f'{HH_API_BASE}/token',
-                                 headers=headers,
-                                 data=data,
-                                 timeout=10).json()
+        response = requests.post(
+            url=f"{HH_API_BASE}/token", headers=headers, data=data, timeout=10
+        ).json()
         print(response)
-        self.access_token = response['access_token']
-        self.refresh_token = response['refresh_token']
-        self.expires_at = time() + response['expires_in']
+        self.access_token = response["access_token"]
+        self.refresh_token = response["refresh_token"]
+        self.expires_at = time() + response["expires_in"]
 
     def invalidate_token(self):
         """
@@ -161,12 +150,10 @@ class Employee:
             dict: API response confirming token invalidation.
         """
 
-        headers = {
-            'Authorization': f'Bearer {self.access_token}'
-        }
-        response = requests.delete(url=f'{HH_API_BASE}/token',
-                                   headers=headers,
-                                   timeout=10)
+        headers = {"Authorization": f"Bearer {self.access_token}"}
+        response = requests.delete(
+            url=f"{HH_API_BASE}/token", headers=headers, timeout=10
+        )
         return response.json()
 
     def get_info(self):
@@ -178,17 +165,13 @@ class Employee:
         """
 
         headers = {
-            'HH-User-Agent': self.appdata.client_info,
-            'Authorization': f'Bearer {self.access_token}'
+            "HH-User-Agent": self.appdata.client_info,
+            "Authorization": f"Bearer {self.access_token}",
         }
-        params = {
-            'locale': self.appdata.locale,
-            'host': self.appdata.host
-        }
-        response = requests.get(url=f'{HH_API_BASE}/me',
-                                headers=headers,
-                                params=params,
-                                timeout=10)
+        params = {"locale": self.appdata.locale, "host": self.appdata.host}
+        response = requests.get(
+            url=f"{HH_API_BASE}/me", headers=headers, params=params, timeout=10
+        )
         return response.json()
 
     def get_resumes(self):
@@ -200,17 +183,16 @@ class Employee:
         """
 
         headers = {
-            'HH-User-Agent': self.appdata.client_info,
-            'Authorization': f'Bearer {self.access_token}'
+            "HH-User-Agent": self.appdata.client_info,
+            "Authorization": f"Bearer {self.access_token}",
         }
-        params = {
-            'locale': self.appdata.locale,
-            'host': self.appdata.host
-        }
-        response = requests.get(url=f'{HH_API_BASE}/resumes/mine',
-                                headers=headers,
-                                params=params,
-                                timeout=10)
+        params = {"locale": self.appdata.locale, "host": self.appdata.host}
+        response = requests.get(
+            url=f"{HH_API_BASE}/resumes/mine",
+            headers=headers,
+            params=params,
+            timeout=10,
+        )
         return response.json()
 
     def get_vacancies_for_resume(self, resume_id: str, params: dict):
@@ -226,14 +208,17 @@ class Employee:
         """
 
         headers = {
-            'HH-User-Agent': self.appdata.client_info,
-            'Authorization': f'Bearer {self.access_token}'
+            "HH-User-Agent": self.appdata.client_info,
+            "Authorization": f"Bearer {self.access_token}",
         }
-        response = requests.get(url=f'{HH_API_BASE}/resumes/{resume_id}/similar_vacancies',
-                                headers=headers,
-                                params=params,
-                                timeout=10)
+        response = requests.get(
+            url=f"{HH_API_BASE}/resumes/{resume_id}/similar_vacancies",
+            headers=headers,
+            params=params,
+            timeout=10,
+        )
         return response.json()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     pass
