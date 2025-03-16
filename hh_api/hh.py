@@ -21,15 +21,15 @@ class App:
         Initializes the App instance.
 
         Args:
-            config (dict): A dictionary containing client ID, secret, info, and host locale settings.
-            app_token (str, optional): An existing application token. Defaults to None.
+        config (dict): A dictionary containing client ID,secret, info, and host locale settings.
+        app_token (str, optional): An existing application token. Defaults to None.
         """
 
         self.client_id = config.get('client_id')
         self.client_secret = config.get('client_secret')
         self.client_info = config.get('client_info')
         self.host = config.get('host')
-        self.locale = config.get('locale', 'RU')
+        self.locale = config.get('locale')
 
         data = {
             'client_id': self.client_id,

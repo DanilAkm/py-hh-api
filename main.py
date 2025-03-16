@@ -1,8 +1,12 @@
-from hh_api import hh
-from dotenv import load_dotenv
+"""
+Testing script for hh api
+"""
+
 import os
-import pymongo
 import time
+from dotenv import load_dotenv
+import pymongo
+from hh_api import hh
 
 load_dotenv()
 client_id = os.getenv('CLIENT_ID')
@@ -14,15 +18,23 @@ myclient = pymongo.MongoClient(mongo_connection)
 mydb = myclient["users"]
 users = mydb["users"]
 
-app = HH.App(client_id, client_secret, 'boyceing/1 (boyceing@boyceing.ru)', 'hh.ru', app_token=app_token)
+appdata = {
+    'client_id': client_id,
+    'client_secret': client_secret,
+    'client_info': 'boyceing/1 (boyceing@boyceing.ru)',
+    'host': 'hh.ru',
+    'locale': 'RU'
+}
 
-target_user = 'akmd.uk@gmail.com'
-userinfo = users.find_one({'email': target_user}, {'_id': False})
+app = hh.App(appdata, app_token=app_token)
+
+TARGET_USER = 'akmd.uk@gmail.com'
+userinfo = users.find_one({'email': TARGET_USER}, {'_id': False})
 
 #    User not found in database
 if userinfo is None:
     print(app.get_link_for_authcode())
-    emp = HH.Employee(app, code=input())
+    emp = hh.Employee(app, code=input())
 
     user_profile = emp.get_info()
     user_profile['access_token'] = emp.access_token
@@ -31,12 +43,12 @@ if userinfo is None:
 
     users.insert_one(user_profile)
 
-#    Found. If token expired - renew 
+#    Found. If token expired - renew
 else:
-    emp = HH.Employee(app, employee_data=userinfo)
+    emp = hh.Employee(app, employee_data=userinfo)
     if userinfo['expires_at'] < time.time():
         emp.renew_token()
-        query_filter = {'email' : target_user}
+        query_filter = {'email' : TARGET_USER}
         update_operation = { '$set' : {
                 'access_token': emp.access_token,
                 'refresh_token': emp.refresh_token,
