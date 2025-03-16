@@ -4,6 +4,7 @@ Testing script for hh api
 
 import os
 import time
+import json
 from dotenv import load_dotenv
 import pymongo
 from hh_api import hh
@@ -63,4 +64,38 @@ search_filter = {
 }
 
 resume_id = emp.get_resumes()['items'][0]['id']
-print(emp.get_vacancies_for_resume(resume_id, search_filter))
+
+def pretty_print(json_data):
+    """
+    Make json readable
+    """
+    print(json.dumps(json_data, indent=4, sort_keys=False, ensure_ascii=False))
+
+def filter_vacancies(vacancies_json):
+    """
+    pretty print vacancy list
+    """
+    important_info = []
+
+    for vacancy in vacancies_json.get("items", []):
+        important_info.append({
+            "Id": vacancy.get("id"),
+            "Title": vacancy.get("name"),
+            "Company": vacancy.get("employer", {}).get("name"),
+            "Location": vacancy.get("area", {}).get("name"),
+            "Salary": (
+                f"""{vacancy['salary']['from']} -
+                {vacancy['salary']['to']} {vacancy['salary']['currency']}"""
+                if vacancy.get("salary") else "Not specified"
+            ),
+            "Requirements": vacancy.get("snippet", {}).get("requirement", "No details"),
+            "Link": vacancy.get("url"),
+            "Human link": vacancy.get("alternate_url"),
+            "Letter": vacancy.get("response_letter_required")
+        })
+    out = json.dumps(important_info, indent=4, ensure_ascii=False)
+    print(out)
+    return out
+
+# pretty_print(emp.get_vacancies_for_resume(resume_id, search_filter))
+filter_vacancies(emp.get_vacancies_for_resume(resume_id, search_filter))
