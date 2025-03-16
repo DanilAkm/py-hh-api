@@ -92,14 +92,14 @@ class Employee:
         self.access_token = response['access_token']
         self.refresh_token = response['refresh_token']
         self.expires_at = time() + response['expires_in']
-    
+
     def invalidate_token(self):
         headers = {
             'Authorization': f'Bearer {self.access_token}'
         }
         response = requests.delete(url=f'{HH_API_BASE}/token', headers=headers)
         return response.json()
-    
+
     def get_info(self):
         headers = {
             'HH-User-Agent': self.appdata.client_info,
@@ -123,17 +123,16 @@ class Employee:
         }
         response = requests.get(url=f'{HH_API_BASE}/resumes/mine', headers=headers, params=params)
         return response.json()
-    
+
     def get_vacancies_for_resume(self, resume_id: str, params: dict):
         headers = {
             'HH-User-Agent': self.appdata.client_info,
             'Authorization': f'Bearer {self.access_token}'
         }
-        response = requests.get(url=f'{HH_API_BASE}/resumes/{resume_id}/similar_vacancies', headers=headers, params=params)
+        response = requests.get(url=f'{HH_API_BASE}/resumes/{resume_id}/similar_vacancies',
+                                headers=headers,
+                                params=params)
         return response.json()
-
-        
-
 
 if __name__ == '__main__':
     pass
