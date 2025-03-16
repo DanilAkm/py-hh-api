@@ -219,6 +219,39 @@ class Employee:
         )
         return response.json()
 
+    def apply_for_vacancy(self, resume_id: str, vacancy_id: str, message: str) -> int:
+        """
+        Sends application for a give vacancy with a given resume
+
+        Args:
+            resume_id (str): The ID if the resume.
+            vacancy_id (str): the ID of the vacancy.
+
+        Returns:
+            int: http response code
+        """
+        headers = {
+            "HH-User-Agent": self.appdata.client_info,
+            "Authorization": f"Bearer {self.access_token}",
+        }
+        data = {
+            'resume_id': resume_id,
+            'vacancy_id': vacancy_id,
+            'message': message
+        }
+        params = {"locale": self.appdata.locale, "host": self.appdata.host}
+
+        response = requests.post(
+            url=f"{HH_API_BASE}/negotiations",
+            headers=headers,
+            params=params,
+            data=data,
+            timeout=10,
+        )
+        print(response.status_code)
+        if response.status_code == 403:
+            print(response.json)
+        return response.status_code
 
 if __name__ == "__main__":
     pass

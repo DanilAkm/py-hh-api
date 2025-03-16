@@ -58,12 +58,6 @@ else:
         }
         result = users.update_one(query_filter, update_operation)
 
-# https://api.hh.ru/openapi/redoc#tag/Poisk-vakansij-dlya-soiskatelya/operation/get-vacancies-similar-to-resume
-search_filter = {
-    'salary': 200000
-}
-
-resume_id = emp.get_resumes()['items'][0]['id']
 
 def pretty_print(json_data):
     """
@@ -77,25 +71,38 @@ def filter_vacancies(vacancies_json):
     """
     important_info = []
 
-    for vacancy in vacancies_json.get("items", []):
+    for vacancia in vacancies_json.get("items", []):
         important_info.append({
-            "Id": vacancy.get("id"),
-            "Title": vacancy.get("name"),
-            "Company": vacancy.get("employer", {}).get("name"),
-            "Location": vacancy.get("area", {}).get("name"),
+            "Id": vacancia.get("id"),
+            "Title": vacancia.get("name"),
+            "Company": vacancia.get("employer", {}).get("name"),
+            "Location": vacancia.get("area", {}).get("name"),
             "Salary": (
-                f"""{vacancy['salary']['from']} -
-                {vacancy['salary']['to']} {vacancy['salary']['currency']}"""
-                if vacancy.get("salary") else "Not specified"
+                f"""{vacancia['salary']['from']} -
+                {vacancia['salary']['to']} {vacancia['salary']['currency']}"""
+                if vacancia.get("salary") else "Not specified"
             ),
-            "Requirements": vacancy.get("snippet", {}).get("requirement", "No details"),
-            "Link": vacancy.get("url"),
-            "Human link": vacancy.get("alternate_url"),
-            "Letter": vacancy.get("response_letter_required")
+            "Requirements": vacancia.get("snippet", {}).get("requirement", "No details"),
+            "Link": vacancia.get("url"),
+            "Human link": vacancia.get("alternate_url"),
+            "Letter": vacancia.get("response_letter_required")
         })
     out = json.dumps(important_info, indent=4, ensure_ascii=False)
     print(out)
     return out
 
-# pretty_print(emp.get_vacancies_for_resume(resume_id, search_filter))
-filter_vacancies(emp.get_vacancies_for_resume(resume_id, search_filter))
+
+MESSAGE = """ """
+
+# https://api.hh.ru/openapi/redoc#tag/Poisk-vakansij-dlya-soiskatelya/operation/get-vacancies-similar-to-resume
+search_filter = {
+    'salary': 200000,
+    'per_page': 100
+}
+
+resume_id = emp.get_resumes()['items'][0]['id']
+vacancies = emp.get_vacancies_for_resume(resume_id, search_filter)['items']
+
+for vacancy in vacancies:
+    print(f'{vacancy['alternate_url']} --- {vacancy['name']}')
+    emp.apply_for_vacancy(resume_id, vacancy['id'], MESSAGE)
