@@ -1,4 +1,4 @@
-from hh_api import core
+from hh_api import HH
 from dotenv import load_dotenv
 import os
 import pymongo
@@ -14,7 +14,7 @@ myclient = pymongo.MongoClient(mongo_connection)
 mydb = myclient["users"]
 users = mydb["users"]
 
-app = core.App(client_id, client_secret, 'boyceing/1 (boyceing@boyceing.ru)', 'hh.ru', app_token=app_token)
+app = HH.App(client_id, client_secret, 'boyceing/1 (boyceing@boyceing.ru)', 'hh.ru', app_token=app_token)
 
 target_user = 'akmd.uk@gmail.com'
 userinfo = users.find_one({'email': target_user}, {'_id': False})
@@ -22,7 +22,7 @@ userinfo = users.find_one({'email': target_user}, {'_id': False})
 #  User not found in database
 if userinfo is None:
   print(app.get_link_for_authcode())
-  emp = core.Employee(app, code=input())
+  emp = HH.Employee(app, code=input())
 
   user_profile = emp.get_info()
   user_profile['access_token'] = emp.access_token
