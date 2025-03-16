@@ -1,13 +1,12 @@
-import requests
-import json
-from time import time
-
 """
 Module for interacting with the HH.ru API.
 
-This module provides classes to authenticate and retrieve information 
+This module provides classes to authenticate and retrieve information
 about applications and employees using the HH.ru API.
 """
+from time import time
+#   import json
+import requests
 
 HH_API_BASE='https://api.hh.ru'
 
@@ -17,7 +16,7 @@ class App:
 
     Handles authentication and provides methods to retrieve application-related data.
     """
-    
+
     def __init__(self, client_id: str,
                  client_secret: str,
                  client_info: str,
@@ -35,7 +34,7 @@ class App:
             locale (str, optional): The locale setting. Defaults to 'RU'.
             app_token (str, optional): An existing application token. Defaults to None.
         """
-        
+
         self.client_id = client_id
         self.client_secret = client_secret
         self.client_info = client_info
@@ -60,7 +59,7 @@ class App:
         Returns:
             dict: Application details from the API.
         """
-        
+
         headers = {
             'Authorization': f'Bearer {self.app_token}',
             'HH-User-Agent': self.client_info
@@ -79,7 +78,7 @@ class App:
         Returns:
             str: The authorization URL.
         """
-        
+
         return f'https://hh.ru/oauth/authorize?response_type=code&client_id={self.client_id}'
 
 class Employee:
@@ -88,7 +87,7 @@ class Employee:
 
     Handles authentication, token management, and provides methods to retrieve employee-related data.
     """
-    
+
     def __init__(self, app: App, code=None, employee_data=None):
         """
         Initializes the Employee instance.
@@ -99,9 +98,10 @@ class Employee:
             employee_data (dict, optional): Existing employee authentication data.
 
         Raises:
-            TypeError: If app is not an instance of App or if required authentication data is missing.
+            TypeError: If app is not an instance of App
+            or if required authentication data is missing.
         """
-        
+
         if not isinstance(app, App):
             raise TypeError("Expected an instance of App")
 
@@ -135,7 +135,7 @@ class Employee:
         """
         Renews the employee's authentication token using the refresh token.
         """
-        
+
         headers = {
             'Content-Type': 'application/x-www-form-urlencoded'
         }
@@ -158,7 +158,7 @@ class Employee:
         Returns:
             dict: API response confirming token invalidation.
         """
-        
+
         headers = {
             'Authorization': f'Bearer {self.access_token}'
         }
@@ -172,7 +172,7 @@ class Employee:
         Returns:
             dict: Employee details from the API.
         """
-        
+
         headers = {
             'HH-User-Agent': self.appdata.client_info,
             'Authorization': f'Bearer {self.access_token}'
@@ -191,7 +191,7 @@ class Employee:
         Returns:
             dict: List of resumes associated with the employee.
         """
-        
+
         headers = {
             'HH-User-Agent': self.appdata.client_info,
             'Authorization': f'Bearer {self.access_token}'
@@ -214,7 +214,7 @@ class Employee:
         Returns:
             dict: List of similar vacancies.
         """
-        
+
         headers = {
             'HH-User-Agent': self.appdata.client_info,
             'Authorization': f'Bearer {self.access_token}'
