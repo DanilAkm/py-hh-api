@@ -21,4 +21,4 @@ repos:
     rev: v3.1.0  # Check for latest version
     hooks:
       - id: pylint
-        args: [--disable=import-error]
+        args: ["*.py", "*/*.py", --disable=import-error]
