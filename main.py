@@ -96,14 +96,23 @@ MESSAGE = """
 """
 
 # https://api.hh.ru/openapi/redoc#tag/Poisk-vakansij-dlya-soiskatelya/operation/get-vacancies-similar-to-resume
+
+# roles = [1, 2, 3, 6, 8, 66, 67, 68, 69, 70, 71, 72, 79, 118, 129, 132, 154, 163, 167]
+
+# for role in roles:
+
 search_filter = {
+    # 'professional_role': role,
+    'per_page': 20
 }
 
 resume_id = emp.get_resumes()['items'][0]['id']
-vacancies = emp.get_vacancies_for_resume(resume_id, search_filter)
+vacancies = emp.get_vacancies_for_resume(resume_id, search_filter) #['items']
 
 # for vacancy in vacancies:
 #     print(f'{vacancy['alternate_url']} --- {vacancy['name']}')
 #     emp.apply_for_vacancy(resume_id, vacancy['id'], MESSAGE)
 
 filter_vacancies(vacancies)
+# pretty_print(vacancies)
+# break

@@ -112,7 +112,6 @@ class Employee:
             response = requests.post(
                 url=f"{HH_API_BASE}/token", headers=headers, data=data, timeout=10
             ).json()
-            print(response)
             self.access_token = response["access_token"]
             self.refresh_token = response["refresh_token"]
             self.expires_at = time() + response["expires_in"]
