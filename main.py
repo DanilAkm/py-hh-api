@@ -29,7 +29,7 @@ appdata = {
 
 app = hh.App(appdata, app_token=app_token)
 
-TARGET_USER = 'akmd.uk@gmail.com'
+TARGET_USER = ''
 userinfo = users.find_one({'email': TARGET_USER}, {'_id': False})
 
 #    User not found in database
@@ -92,17 +92,18 @@ def filter_vacancies(vacancies_json):
     return out
 
 
-MESSAGE = """"""
+MESSAGE = """
+"""
 
 # https://api.hh.ru/openapi/redoc#tag/Poisk-vakansij-dlya-soiskatelya/operation/get-vacancies-similar-to-resume
 search_filter = {
-    'salary': 200000,
-    'per_page': 100
 }
 
 resume_id = emp.get_resumes()['items'][0]['id']
-vacancies = emp.get_vacancies_for_resume(resume_id, search_filter)['items']
+vacancies = emp.get_vacancies_for_resume(resume_id, search_filter)
 
-for vacancy in vacancies:
-    print(f'{vacancy['alternate_url']} --- {vacancy['name']}')
-    emp.apply_for_vacancy(resume_id, vacancy['id'], MESSAGE)
+# for vacancy in vacancies:
+#     print(f'{vacancy['alternate_url']} --- {vacancy['name']}')
+#     emp.apply_for_vacancy(resume_id, vacancy['id'], MESSAGE)
+
+filter_vacancies(vacancies)
