@@ -250,5 +250,26 @@ class Employee:
             print(response.json())
         return response.status_code
 
+    def get_negotiations(self, params: dict):
+        """
+        Returns active negotiations base on filter
+
+        Args:
+            params (dict): search filters
+        Returns:
+            filtered negotiations
+        """
+        headers = {
+            "HH-User-Agent": self.appdata.client_info,
+            "Authorization": f"Bearer {self.access_token}",
+        }
+        response = requests.get(
+            url=f"{HH_API_BASE}/negotiations",
+            headers=headers,
+            params=params,
+            timeout=10,
+        )
+        return response.json()
+
 if __name__ == "__main__":
     pass
