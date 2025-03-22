@@ -271,5 +271,32 @@ class Employee:
         )
         return response.json()
 
+    def get_negotitation_texts(self, negotiation_id: str, text_only = False) -> dict:
+        """
+        Returns message history in negotiation
+
+        Atgs:
+            negotiation_id (str):
+            text_only (bool):
+
+        Returns:
+            pohuy
+        """
+        headers = {
+            "HH-User-Agent": self.appdata.client_info,
+            "Authorization": f"Bearer {self.access_token}",
+        }
+        params = {
+            "locale": self.appdata.locale,
+            "host": self.appdata.host,
+            "with_text_only": text_only,
+        }
+        response = requests.get(
+            url=f'{HH_API_BASE}/negotiations/{negotiation_id}/messages',
+            headers=headers,
+            params=params
+        )
+        return response.json()
+
 if __name__ == "__main__":
     pass
